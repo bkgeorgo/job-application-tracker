@@ -1,6 +1,7 @@
 import tracker
 import unittest
 import json
+from unittest.mock import Mock, patch
 
 
 def load_file():
@@ -47,6 +48,19 @@ class TestTracker(unittest.TestCase):
         self.assertEqual(tracker.find_applications(applications, "Google"),
             []
         )
+    @patch("tracker.get_users")
+    def test_get_usernames(self, mock_get_users):
+        mock_get_users.return_value = [
+        {"name": "Alice"},
+        {"name": "Bob"}
+        ]
+        
+        self.assertEqual(
+        tracker.get_user_name(),
+        ["Alice", "Bob"]
+        )
+        mock_get_users.assert_called_once()
+        
 
 
 if __name__ == "__main__":

@@ -1,5 +1,6 @@
 import json
 import os
+import requests
 
 def load_applications():
     filename = "applications.json"
@@ -46,6 +47,18 @@ def save_applications(applications):
     with open("applications.json", "w") as file:
         json.dump(applications, file, indent = 4)
 
+def get_users():
+    response = requests.get("https://jsonplaceholder.typicode.com/users")
+    return response.json()
+
+def get_user_name():
+    users = get_users()
+    names= []
+
+    for user in users:
+        names.append(user["name"])
+    return names
+
 def find_applications(applications,company):
     company_list = []
     for application in applications:
@@ -70,15 +83,18 @@ def main():
             add_application(applications)
         elif(choice == "2"):
             print_applications(applications)
+            print()
         elif(choice == "3"):
             print(get_interviews(applications))
+            print()
         elif(choice == "4"):
             company = input("Please input a company name:")
             results = find_applications(applications, company)
             if not results:
                 print("Company not found in tracker\n")
             else:
-                print(results\n)
+                print(results)
+                print()
         elif(choice == "5"):
             print("Goodbye")
             break
