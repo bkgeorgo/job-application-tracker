@@ -1,0 +1,19 @@
+[
+    {
+        "company": "Google",
+        "role": "QA Tester",
+        "status": "rejected"
+    },{
+        "company": "OpenAI",
+        "role": "QA Tester",
+        "status": "interview"
+    },{
+        "company": "Meta",
+        "role": "QA Tester",
+        "status": "applied"
+    },{
+        "company": "Amazon",
+        "role": "QA Tester",
+        "status": "interview"
+    }
+]
