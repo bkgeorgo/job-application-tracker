@@ -14,9 +14,11 @@ A command line application for tracking job applications that are stored persist
 - Handle invalid JSON files
 
 ## How to Run
--git clone https://github.com/bkgeorgo/job-application-tracker.git
--cd job-application-tracker
--python tracker.py
+git clone https://github.com/bkgeorgo/job-application-tracker.git
+
+cd job-application-tracker
+
+python tracker.py
 
 ## Testing
 test_tracker.py is used to verify integrity of the tracker itself
